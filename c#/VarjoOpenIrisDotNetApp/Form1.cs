@@ -11,7 +11,7 @@ namespace VarjoOpenIrisDotNetApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Class1.MyFunction2();
+            int res = Class1.MyFunction2();
         }
     }
 }

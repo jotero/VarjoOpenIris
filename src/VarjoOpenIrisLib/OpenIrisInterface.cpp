@@ -30,8 +30,8 @@ std::string getCopyrightText() { return "(C) 2022-2024 Varjo Technologies"; }
 
 int MyFunction2()
 {
-    MyFunction(0, 0);
-    return 0;
+    //MyFunction(0, 0);
+    return 2;
 }
 
 int MyFunction(int argc, char** argv) {
