@@ -34,6 +34,7 @@ extern "C" {
 #endif
 
 	VARJOOPENIRIS_API int MyFunction(int argc, char** argv);
+	VARJOOPENIRIS_API int MyFunction2();
 
 #ifdef __cplusplus
 }

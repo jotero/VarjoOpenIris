@@ -1,3 +1,8 @@
 
 /.vs
 /build-vs-debug
+/c\#/VarjoOpenIrisDotNetApp/obj
+/c\#/VarjoOpenIrisDotNetApp/bin
+/c\#/VarjoOpenIrisPlugin/obj
+/c\#/VarjoOpenIrisPlugin/bin
+/c\#/.vs/VarjoOpenIrisDotNetApp/FileContentIndex

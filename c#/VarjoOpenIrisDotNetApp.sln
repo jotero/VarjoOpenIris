@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VarjoOpenIrisDotNetApp", "VarjoOpenIrisDotNetApp\VarjoOpenIrisDotNetApp.csproj", "{5C1EDA59-D07C-4793-B51E-7EAA04AA74F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VarjoOpenIrisPlugin", "VarjoOpenIrisPlugin\VarjoOpenIrisPlugin.csproj", "{8113F89D-6211-4C68-B8B2-8D8F4FC28C21}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C1EDA59-D07C-4793-B51E-7EAA04AA74F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C1EDA59-D07C-4793-B51E-7EAA04AA74F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C1EDA59-D07C-4793-B51E-7EAA04AA74F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C1EDA59-D07C-4793-B51E-7EAA04AA74F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8113F89D-6211-4C68-B8B2-8D8F4FC28C21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8113F89D-6211-4C68-B8B2-8D8F4FC28C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8113F89D-6211-4C68-B8B2-8D8F4FC28C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8113F89D-6211-4C68-B8B2-8D8F4FC28C21}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09C62353-EC68-4C6F-9429-2AAAC21F9FB6}
+	EndGlobalSection
+EndGlobal
