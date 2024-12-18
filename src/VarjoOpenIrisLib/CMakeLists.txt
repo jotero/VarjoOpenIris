@@ -32,8 +32,8 @@ set(_sources_app
     ${CMAKE_CURRENT_SOURCE_DIR}/StreamingApplication.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/UIApplication.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/UIApplication.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/OpenIrisInterface.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/OpenIrisInterface.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/OpenIrisInterface.cpp
 )
 
 # Visual studio source groups

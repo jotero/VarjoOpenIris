@@ -1,12 +1,6 @@
 #include "OpenIrisInterface.h"
 
 
-#include <cxxopts.hpp>
-
-#include "Session.hpp"
-#include "StreamingApplication.hpp"
-#include "UIApplication.hpp"
-
 // Application instance
 std::unique_ptr<IApplication> g_application;
 
@@ -28,11 +22,54 @@ std::string getAppNameAndVersionText() { return std::string("Varjo Eye Tracking 
 
 std::string getCopyrightText() { return "(C) 2022-2024 Varjo Technologies"; }
 
+// Define a function pointer type for the callback
+
+CallbackType openIris_callback = nullptr;
+
 int MyFunction2()
 {
+    if (openIris_callback) {
+        bool res = openIris_callback(); // Example: Call the callback with a value
+    }
     //MyFunction(0, 0);
     return 2;
 }
+
+// Function to register the callback
+int RegisterCallback(CallbackType callback) {
+    openIris_callback = callback;
+    // Store or use the callback
+    if (openIris_callback) {
+        bool res = openIris_callback(); // Example: Call the callback with a value
+    }
+    return 0;
+}
+
+int GetLastFrame(uint8_t** frameData, int* size, FrameInfo* frameInfo) {
+    // Example frame data and frame number
+    std::vector<uint8_t> frame = { 1, 2, 3, 4, 5 }; // Example frame data
+    int64_t lastFrameNumber = 123456789;          // Example frame number
+
+    frameInfo->frameIndex = 123456;  // Example frame index
+    frameInfo->timestamp = 987654;  // Example timestamp
+
+    *size = static_cast<int>(frame.size());
+    // Allocate memory and copy the frame data
+    *frameData = static_cast<uint8_t*>(malloc(frame.size()));
+    if (*frameData) {
+        memcpy(*frameData, frame.data(), frame.size());
+    }
+    return 0;
+}
+
+// Function to free the allocated frame data
+int FreeFrameData(uint8_t* frameData) {
+    if (frameData) {
+        free(frameData);
+    }
+    return 0;
+}
+
 
 int MyFunction(int argc, char** argv) {
 
@@ -147,3 +184,5 @@ varjo_ChannelFlag parseChannels(const std::string& str)
 
     throw std::runtime_error("Unsupported command line option --channels=" + str);
 }
+
+

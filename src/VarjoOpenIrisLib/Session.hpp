@@ -2,7 +2,6 @@
 
 #pragma once
 #include <string>
-#include "OpenIrisInterface.h"
 #include <Varjo.h>
 
 // C++ helper for handling Varjo API session instances

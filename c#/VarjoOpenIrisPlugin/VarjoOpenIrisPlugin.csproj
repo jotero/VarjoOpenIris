@@ -8,4 +8,11 @@
     <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="OpenIrisLib">
+      <HintPath>..\lib\OpenIrisLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+
 </Project>

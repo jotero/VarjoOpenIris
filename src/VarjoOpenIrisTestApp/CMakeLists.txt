@@ -25,6 +25,15 @@ add_executable(${_target}
     ${_sources_app}
 )
 target_link_libraries(${_target}
+    PRIVATE VarjoLib
+    PRIVATE CxxOpts
+    PRIVATE d3d11
+    PRIVATE dxgi
+    PRIVATE d3dcompiler
+    PRIVATE GLM::GLM
+    PRIVATE ImGui::ImGui
+    PRIVATE ImGui::ImGuiBackends
+    PRIVATE FreeType::FreeType
     PRIVATE VarjoOpenIrisLib
 )
 
