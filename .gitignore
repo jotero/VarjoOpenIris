@@ -7,3 +7,5 @@
 /c\#/VarjoOpenIrisPlugin/bin
 /c\#/.vs/VarjoOpenIrisDotNetApp/FileContentIndex
 /c\#/.vs
+/src/.vs
+/src/build-vs-debug
