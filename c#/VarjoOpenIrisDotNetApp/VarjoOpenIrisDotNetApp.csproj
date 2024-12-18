@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(TargetDir)*&quot; &quot;$(ProjectDir)..\..\build-vs-debug\bin&quot; /E /Y /I" />
+    <Exec Command="xcopy &quot;$(TargetDir)*&quot; &quot;$(ProjectDir)..\..\src\build-vs-debug\bin&quot; /E /Y /I" />
   </Target>
 
 </Project>
