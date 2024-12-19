@@ -3,6 +3,19 @@ using static VarjoOpenIrisPlugin.Class1;
 
 namespace VarjoOpenIrisPlugin
 {
+    // Define the struct to match the C++ FrameInfo
+    [StructLayout(LayoutKind.Sequential)]
+    public struct FrameInfo
+    {
+        public long FrameIndex; // Matches C++'s `long` (8 bytes on most platforms)
+        public long Timestamp;  // Matches C++'s `long`
+        public long ChannelIndex;
+    }
+
+    // Define a delegate that matches the C++ callback signature
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate bool CallbackDelegateOld(IntPtr frameData, int size, FrameInfo frameInfo);
+
     public class NewFrameEventArgs : EventArgs
     {
        public long frameNumber;
@@ -34,16 +47,7 @@ namespace VarjoOpenIrisPlugin
 
         [DllImport("VarjoOpenIrisLib.dll", CallingConvention = CallingConvention.Cdecl,
             CharSet = CharSet.Ansi, EntryPoint = "VarjoStartCameras")]
-        public static extern int VarjoStartCameras(CallbackDelegate callback);
-
-       
-        // Define the struct to match the C++ FrameInfo
-        [StructLayout(LayoutKind.Sequential)]
-        public struct FrameInfo
-        {
-            public long FrameIndex; // Matches C++'s `long` (8 bytes on most platforms)
-            public long Timestamp;  // Matches C++'s `long`
-        }
+        public static extern int VarjoStartCameras(CallbackDelegateOld callback);
 
 
         // Import the C++ GetLastFrame function

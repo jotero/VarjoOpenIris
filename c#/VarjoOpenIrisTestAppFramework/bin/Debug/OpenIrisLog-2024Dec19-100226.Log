@@ -1,0 +1,16 @@
+10:02:26 - ERROR loading plugins :ERROR loading plugins
+10:02:26 - ERROR loading plugins : going into safe mode.
+10:02:26 - OpenIris.PluginManagerException: ERROR loading plugins ---> System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\USERS\OPT-OMLAB\DOCUMENTS\GITHUB\VARJOOPENIRIS\C#\VARJOOPENIRISTESTAPPFRAMEWORK\BIN\DEBUG\PLUGINS'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   at System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   at System.IO.Directory.GetFiles(String path, String searchPattern)
+   at System.ComponentModel.Composition.Hosting.DirectoryCatalog.GetFiles()
+   at System.ComponentModel.Composition.Hosting.DirectoryCatalog.Initialize(String path, String searchPattern)
+   at System.ComponentModel.Composition.Hosting.DirectoryCatalog..ctor(String path, String searchPattern)
+   at System.ComponentModel.Composition.Hosting.DirectoryCatalog..ctor(String path)
+   at OpenIris.EyeTrackerPluginManager.Init(Boolean safeMode) in D:\OneDrive\UC Berkeley\OMlab - JOM\Code\OpenIris\source\source\OpenIrisLib\Util\EyeTrackerPluginManager.cs:line 40
+   --- End of inner exception stack trace ---
+   at OpenIris.EyeTrackerPluginManager.Init(Boolean safeMode) in D:\OneDrive\UC Berkeley\OMlab - JOM\Code\OpenIris\source\source\OpenIrisLib\Util\EyeTrackerPluginManager.cs:line 59
+   at OpenIris.EyeTracker..ctor() in D:\OneDrive\UC Berkeley\OMlab - JOM\Code\OpenIris\source\source\OpenIrisLib\EyeTracker.cs:line 54
+10:02:26 - Stopping Eye Tracker.

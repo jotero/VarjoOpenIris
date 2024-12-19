@@ -1,0 +1,20 @@
+10:08:05 - OpenIris.EyeTrackingSystemBase loader : 3 factories available
+10:08:05 - OpenIris.CalibrationPipelineBase loader : 2 factories available
+10:08:05 - OpenIris.EyeTrackingPipelineBase loader : 4 factories available
+10:08:05 - Error loading settings going to defaults. System.IO.FileNotFoundException: Could not find file 'C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisTestAppFramework\bin\Debug\EyeTrackerSettings.xml'.
+File name: 'C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisTestAppFramework\bin\Debug\EyeTrackerSettings.xml'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path)
+   at OpenIris.EyeTrackerSettings.Load() in D:\OneDrive\UC Berkeley\OMlab - JOM\Code\OpenIris\source\source\OpenIrisLib\EyeTrackerSettings.cs:line 291
+10:08:06 - Error starting WEB service: HTTP could not register URL http://+:9001/EyeTrackerEndpoint/. Your process does not have access rights to this namespace (see http://go.microsoft.com/fwlink/?LinkId=70353 for details).
+10:08:06 - ==== INSTRUCTIONS ==========================================================
+10:08:06 - After running the server for the first time you should open the command line
+10:08:06 - in administrator mode and run the following command to enable the service.
+10:08:06 - netsh http add urlacl url = http://+:9001/EyeTrackerEndpoint/ user=username
+10:08:06 - After running the command and starting the eye tracker you can open the browser 
+10:08:06 - http://localhost:9001/EyeTrackerEndpoint/Web/StartRecording
+10:08:06 - Or from a different computer using the correct IP address
+10:08:06 - ==== END INSTRUCTIONS ==========================================================

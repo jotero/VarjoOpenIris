@@ -7,6 +7,7 @@
 struct FrameInfo {
     long long frameIndex;  // Frame index
     long long timestamp;   // Frame timestamp
+    long long channelIndex;
 };
 
 typedef bool(*CallbackType)(uint8_t* frameData, int size, FrameInfo frameInfo);

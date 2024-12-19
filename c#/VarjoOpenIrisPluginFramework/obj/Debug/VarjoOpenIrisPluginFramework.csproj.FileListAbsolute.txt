@@ -1,0 +1,9 @@
+C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisPluginFramework\obj\Debug\VarjoOpenIrisPluginFramework.csproj.AssemblyReference.cache
+C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisPluginFramework\obj\Debug\VarjoOpenIrisPluginFramework.csproj.CoreCompileInputs.cache
+C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisPluginFramework\bin\Debug\VarjoOpenIrisPluginFramework.dll
+C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisPluginFramework\bin\Debug\VarjoOpenIrisPluginFramework.pdb
+C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisPluginFramework\bin\Debug\OpenIrisLib.dll
+C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisPluginFramework\bin\Debug\OpenIrisLib.pdb
+C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisPluginFramework\obj\Debug\VarjoOpe.4C2131B2.Up2Date
+C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisPluginFramework\obj\Debug\VarjoOpenIrisPluginFramework.dll
+C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisPluginFramework\obj\Debug\VarjoOpenIrisPluginFramework.pdb
