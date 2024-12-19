@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.ComponentModel.Composition" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="OpenIrisLib">
       <HintPath>..\lib\OpenIrisLib.dll</HintPath>
       <Private>True</Private>

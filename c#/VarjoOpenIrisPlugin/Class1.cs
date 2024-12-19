@@ -31,9 +31,6 @@ namespace VarjoOpenIrisPlugin
             CharSet = CharSet.Ansi, EntryPoint = "MyFunction2")]
         public static extern int MyFunction2();
 
-        // Define a delegate that matches the C++ callback signature
-        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate bool CallbackDelegate(IntPtr frameData, int size, FrameInfo frameInfo);
 
         [DllImport("VarjoOpenIrisLib.dll", CallingConvention = CallingConvention.Cdecl,
             CharSet = CharSet.Ansi, EntryPoint = "VarjoStartCameras")]
