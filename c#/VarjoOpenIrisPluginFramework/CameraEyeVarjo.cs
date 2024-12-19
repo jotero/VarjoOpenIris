@@ -17,6 +17,11 @@ namespace VarjoOpenIrisPlugin
         public BlockingCollection<ImageEye> cameraBuffer = new BlockingCollection<ImageEye>(100);
         private CancellationTokenSource cancellation = new CancellationTokenSource();
 
+        public CameraEyeVarjo()
+        {
+            FrameRate = 100;
+        }
+
         public override void Start()
         {
         }
@@ -31,7 +36,8 @@ namespace VarjoOpenIrisPlugin
         {
             try
             {
-                return cameraBuffer.Take(cancellation.Token);
+                var image =  cameraBuffer.Take(cancellation.Token);
+                return image;
             }
             catch (OperationCanceledException)
             {

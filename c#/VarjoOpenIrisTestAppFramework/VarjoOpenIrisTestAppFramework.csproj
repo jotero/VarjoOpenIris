@@ -112,6 +112,7 @@
     <Error Condition="!Exists('..\packages\EMGU.CV.4.1.1.3497\build\EMGU.CV.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EMGU.CV.4.1.1.3497\build\EMGU.CV.targets'))" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(TargetDir)*" "$(ProjectDir)..\..\src\build-vs-debug\bin" /E /Y /I</PostBuildEvent>
+    <PostBuildEvent>xcopy "$(TargetDir)*" "$(ProjectDir)..\..\src\build-vs-debug\bin" /E /Y /I
+xcopy "$(TargetDir)*" "$(ProjectDir)..\..\..\Release\Plugins" /E /Y /I</PostBuildEvent>
   </PropertyGroup>
 </Project>

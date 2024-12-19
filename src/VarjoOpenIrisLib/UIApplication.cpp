@@ -46,10 +46,10 @@ void UIApplication::run()
     // Start streaming and open UI
     m_stream.startStream();
     m_ui->run();
-
+    
     // Deinit logger
     LOG_DEINIT();
-
+    
     // Close UI
     m_texture.resourceView.Reset();
     m_texture.stagingTexture.Reset();
@@ -60,7 +60,7 @@ void UIApplication::run()
 void UIApplication::terminate()
 {
     m_stream.stopStream();
-    m_ui->terminate();
+    //m_ui->terminate();
 }
 
 bool UIApplication::hasChannel(size_t channelIndex) const { return (m_channels & (1ull << channelIndex)) != 0; }
@@ -129,16 +129,16 @@ bool UIApplication::onFrameCallback()
 
 
 
-
+        /*
 
         // Update texture when all channels have new valid frames with same frame numbers
         const auto optFrameNumber = getCommonFrameNumber();
         if (optFrameNumber.has_value() && (optFrameNumber.value() != m_frameNumber)) {
             m_frameNumber = optFrameNumber.value();
             updateTexture();
-        }
+        }*/
     }
-
+    /*
     // Draw UI only if both frames are valid (fallback to black screen if stream is not updating)
     if (validFrames == m_channelCount) {
         if (m_texture.dimensions.x > 0 && m_texture.dimensions.y > 0) {
@@ -152,7 +152,7 @@ bool UIApplication::onFrameCallback()
     if (optStatsUpdate.has_value()) {
         m_ui->setWindowTitle(L"Eye Camera Stream Example - FPS: " + std::to_wstring(lround(optStatsUpdate->fps)));
     }
-
+    */
     return true;
 }
 

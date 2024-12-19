@@ -16,7 +16,7 @@ namespace VarjoOpenIrisPlugin
     public class EyeTrackingSystemVarjo : EyeTrackingSystemBase
     {
 
-        private EyeCollection<CameraEyeVarjo>? cameras;
+        private EyeCollection<CameraEye>? cameras;
         private ImageEyeTimestamp firstTimeStamp = ImageEyeTimestamp.Empty;
         private long numberFramesGrabbed;
 
@@ -26,18 +26,17 @@ namespace VarjoOpenIrisPlugin
         }
         protected override EyeCollection<CameraEye?>? CreateAndStartCameras()
         {
-            cameras = new EyeCollection<CameraEyeVarjo> { new CameraEyeVarjo(), new CameraEyeVarjo() };
-
+            cameras = new EyeCollection<CameraEye> { new CameraEyeVarjo(), new CameraEyeVarjo() };
             // Create a delegate instance
             CallbackDelegate callback = new CallbackDelegate(this.VarjoCallbackFunction);
 
             // Register the callback with the C++ DLL
             Console.WriteLine("Callback registered.");
 
-            int result = VarjoDLL.VarjoStartCameras(callback);
+            Task.Run(()=>VarjoDLL.VarjoStartCameras(callback));
              
 
-            return null;
+            return cameras;
         }
 
         public override IHeadDataSource? CreateHeadDataSourceWithCameras()
@@ -76,22 +75,22 @@ namespace VarjoOpenIrisPlugin
             if (frameDataPtr != IntPtr.Zero && size > 0)
             {
                 // Marshal the frame data to a managed byte array
-                byte[] frameData = new byte[size];
-                Marshal.Copy(frameDataPtr, frameData, 0, size);
+                //byte[] frameData = new byte[size];
+                //Marshal.Copy(frameDataPtr, frameData, 0, size);
 
                 // Print the frame metadata
-                Console.WriteLine("Frame Index: " + frameInfo.FrameIndex);
-                Console.WriteLine("Timestamp: " + frameInfo.Timestamp);
+                //Console.WriteLine("Frame Index: " + frameInfo.FrameIndex);
+                //Console.WriteLine("Timestamp: " + frameInfo.Timestamp);
 
-                Console.WriteLine("Frame Data: " + string.Join(", ", frameData));
+                //Console.WriteLine("Frame Data: " + string.Join(", ", frameData));
 
                 numberFramesGrabbed++;
 
                 var timestamp = new ImageEyeTimestamp
                 (
-                    seconds: 1,
-                    frameNumber: 2 - firstTimeStamp.FrameNumberRaw,
-                    frameNumberRaw: 2
+                    seconds: (double)frameInfo.Timestamp / 1000000.0,
+                    frameNumber: (ulong)frameInfo.FrameIndex - firstTimeStamp.FrameNumberRaw,
+                    frameNumberRaw: (ulong)frameInfo.FrameIndex
                 );
                 // If it is the first frame save some info
                 if (numberFramesGrabbed == 1)
@@ -105,18 +104,18 @@ namespace VarjoOpenIrisPlugin
                 int cols = 640;
                 int rows = 480;
                 int stride = 640;
-                var WhichEye = (frameInfo.ChannelIndex==0) ? Eye.Left : Eye.Right;
+                var WhichEye = (frameInfo.ChannelIndex==1) ? Eye.Left : Eye.Right;
                 var newImage = new ImageEye(cols, rows, stride, frameDataPtr, timestamp)
                 {
                     WhichEye = WhichEye,
                     ImageSourceData = frameDataPtr
                 };
 
-                cameras?[WhichEye].cameraBuffer.Add(newImage);
+                (cameras?[WhichEye] as CameraEyeVarjo)?.cameraBuffer.Add(newImage);
 
 
                 // Free the memory allocated by C++
-                VarjoDLL.FreeFrameData(frameDataPtr);
+                //VarjoDLL.FreeFrameData(frameDataPtr);
             }
             else
             {

@@ -39,9 +39,9 @@ int MyFunction2()
     }
 
     int size = static_cast<int>(frame.size());
-    if (g_application->openIris_callback) {
-        bool res = g_application->openIris_callback(frameData, size, frameInfo); // Example: Call the callback with a value
-    }
+   // if (g_application->openIris_callback) {
+   //     bool res = g_application->openIris_callback(frameData, size, frameInfo); // Example: Call the callback with a value
+   // }
     //MyFunction(0, 0);
     return 2;
 }
