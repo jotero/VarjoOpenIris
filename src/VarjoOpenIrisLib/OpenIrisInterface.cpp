@@ -24,25 +24,26 @@ std::string getCopyrightText() { return "(C) 2022-2024 Varjo Technologies"; }
 
 // Define a function pointer type for the callback
 
-CallbackType openIris_callback = nullptr;
+//CallbackType openIris_callback = nullptr;
 
 int MyFunction2()
 {
-    if (openIris_callback) {
-        bool res = openIris_callback(); // Example: Call the callback with a value
+    std::vector<uint8_t> frame = { 1, 2, 3, 4, 5 };
+    FrameInfo frameInfo{};
+    frameInfo.frameIndex = 123456;  // Example frame index
+    frameInfo.timestamp = 987654;  // Example timestamp
+    uint8_t* frameData = static_cast<uint8_t*>(malloc(frame.size()));
+
+    if (frameData) {
+        memcpy(frameData, frame.data(), frame.size());
+    }
+
+    int size = static_cast<int>(frame.size());
+    if (g_application->openIris_callback) {
+        bool res = g_application->openIris_callback(frameData, size, frameInfo); // Example: Call the callback with a value
     }
     //MyFunction(0, 0);
     return 2;
-}
-
-// Function to register the callback
-int RegisterCallback(CallbackType callback) {
-    openIris_callback = callback;
-    // Store or use the callback
-    if (openIris_callback) {
-        bool res = openIris_callback(); // Example: Call the callback with a value
-    }
-    return 0;
 }
 
 int GetLastFrame(uint8_t** frameData, int* size, FrameInfo* frameInfo) {
@@ -71,8 +72,9 @@ int FreeFrameData(uint8_t* frameData) {
 }
 
 
-int MyFunction(int argc, char** argv) {
-
+int VarjoStartCameras(CallbackType callback) {
+    int argc = 1;
+    char* argv[] = { "Hello" };
     /* DLL loaded dynamically
     // Load the DLL
     HMODULE hDll = LoadLibraryA("EyeCameraStreamExampleDLL.dll");
@@ -146,6 +148,8 @@ int MyFunction(int argc, char** argv) {
             "%s\n"
             "-------------------------------",
             getAppNameAndVersionText().c_str(), getCopyrightText().c_str());
+
+        g_application->openIris_callback = callback;
 
         // Execute application
         g_application->run();

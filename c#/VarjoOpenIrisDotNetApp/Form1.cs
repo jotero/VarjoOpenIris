@@ -6,38 +6,40 @@ namespace VarjoOpenIrisDotNetApp
 {
     public partial class Form1 : Form
     {
+        Class1 Class1 = new Class1();
+
         public Form1()
         {
             InitializeComponent();
+
+            Class1.NewFrame += Class1_NewFrame;
+        }
+
+        private void Class1_NewFrame(object sender, NewFrameEventArgs e)
+        {
+            this.label1.Text = e.frameNumber.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int res = Class1.MyFunction2();
+           // int res = Class1.MyFunction2();
 
-            MessageBox.Show("success res = " + res);
+           // MessageBox.Show("success res = " + res);
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string[] myArgs = { };
-           int result = Class1.MyFunction(myArgs.Length, myArgs);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
             // Create a delegate instance
-            CallbackDelegate callback = new CallbackDelegate(MyCallbackFunction);
+            CallbackDelegate callback = new CallbackDelegate(Class1.MyCallbackFunction);
 
             // Register the callback with the C++ DLL
-            RegisterCallback(callback);
-
             Console.WriteLine("Callback registered.");
+
+            int result = Class1.VarjoStartCameras(callback);
+
+            int a = 1;
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-        }
     }
 }

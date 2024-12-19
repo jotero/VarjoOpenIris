@@ -4,6 +4,13 @@
 
 #include <Varjo_types_datastream.h>
 
+struct FrameInfo {
+    long long frameIndex;  // Frame index
+    long long timestamp;   // Frame timestamp
+};
+
+typedef bool(*CallbackType)(uint8_t* frameData, int size, FrameInfo frameInfo);
+
 class IApplication
 {
 public:
@@ -15,4 +22,6 @@ public:
 
     virtual void run() = 0;
     virtual void terminate() = 0;
+
+    CallbackType openIris_callback = nullptr;
 };

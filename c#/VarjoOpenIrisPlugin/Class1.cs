@@ -3,24 +3,42 @@ using static VarjoOpenIrisPlugin.Class1;
 
 namespace VarjoOpenIrisPlugin
 {
+    public class NewFrameEventArgs : EventArgs
+    {
+       public long frameNumber;
+
+        public NewFrameEventArgs(long frameN)
+        {
+            this.frameNumber = frameN;
+        }
+    }
+
     public class Class1
     {
+        public delegate void NewFrameEventHandler(object sender, NewFrameEventArgs e);
+
+        // Step 2: Declare the event
+        public event NewFrameEventHandler NewFrame;
+
+        // Step 3: Raise the event
+        protected virtual void OnNewFrame(NewFrameEventArgs e)
+        {
+            NewFrame?.Invoke(this, e);
+        }
+
+
         [DllImport("VarjoOpenIrisLib.dll", CallingConvention = CallingConvention.Cdecl,
             CharSet = CharSet.Ansi, EntryPoint = "MyFunction2")]
         public static extern int MyFunction2();
 
-
-        [DllImport("VarjoOpenIrisLib.dll", CallingConvention = CallingConvention.Cdecl,
-            CharSet = CharSet.Ansi, EntryPoint = "MyFunction")]
-        public static extern int MyFunction(int argc, [In] string[] argv);
-
         // Define a delegate that matches the C++ callback signature
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate bool CallbackDelegate();
+        public delegate bool CallbackDelegate(IntPtr frameData, int size, FrameInfo frameInfo);
 
-        // Import the C++ function to register the callback
-        [DllImport("VarjoOpenIrisLib.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void RegisterCallback(CallbackDelegate callback);
+        [DllImport("VarjoOpenIrisLib.dll", CallingConvention = CallingConvention.Cdecl,
+            CharSet = CharSet.Ansi, EntryPoint = "VarjoStartCameras")]
+        public static extern int VarjoStartCameras(CallbackDelegate callback);
+
        
         // Define the struct to match the C++ FrameInfo
         [StructLayout(LayoutKind.Sequential)]
@@ -43,14 +61,14 @@ namespace VarjoOpenIrisPlugin
 
 
         // Callback function to pass to C++
-        public static bool MyCallbackFunction()
+        public bool MyCallbackFunction(IntPtr frameDataPtr, int size, FrameInfo frameInfo)
         {
-            IntPtr frameDataPtr = IntPtr.Zero;
-            int size = 0;
-            FrameInfo frameInfo = new FrameInfo();
+           // IntPtr frameDataPtr = IntPtr.Zero;
+           // int size = 0;
+           // FrameInfo frameInfo = new FrameInfo();
 
             // Call the C++ function to get the last frame
-            GetLastFrame(out frameDataPtr, out size, ref frameInfo);
+            //GetLastFrame(out frameDataPtr, out size, ref frameInfo);
 
             if (frameDataPtr != IntPtr.Zero && size > 0)
             {
@@ -63,6 +81,8 @@ namespace VarjoOpenIrisPlugin
                 Console.WriteLine("Timestamp: " + frameInfo.Timestamp);
 
                 Console.WriteLine("Frame Data: " + string.Join(", ", frameData));
+
+                OnNewFrame(new NewFrameEventArgs(frameInfo.FrameIndex));
 
                 // Free the memory allocated by C++
                 FreeFrameData(frameDataPtr);
