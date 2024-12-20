@@ -90,6 +90,8 @@ void StreamingApplication::handleNewFrames()
 
 
 
+
+
         // OPEN IRIS STUFF
 
         std::vector<uint8_t> frame = m_frame[channelIndex].data;

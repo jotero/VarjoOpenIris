@@ -89,13 +89,13 @@ namespace VarjoOpenIrisPlugin
 
                 var timestamp = new ImageEyeTimestamp
                 (
-                    seconds: (double)frameInfo.Timestamp / 1000000.0,
+                    seconds: (double)frameInfo.Timestamp / 1000000000.0,
                     frameNumber: (ulong)frameInfo.FrameIndex - firstTimeStamp.FrameNumberRaw,
                     frameNumberRaw: (ulong)frameInfo.FrameIndex
                 );
                 // If it is the first frame save some info
                 if (numberFramesGrabbed == 1)
-                {
+                { 
                     timestamp.FrameNumber = 0;
                     firstTimeStamp = timestamp;
                 }

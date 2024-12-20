@@ -12,6 +12,24 @@ using System.Threading;
 
 namespace VarjoOpenIrisPlugin
 {
+    internal class ImageEyeVarjo : ImageEye
+    {
+        public ImageEyeVarjo(int width, int height, int stride, IntPtr data, ImageEyeTimestamp timeStamp)
+            : base( width, height, stride, data, timeStamp)
+        {
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (this.ImageSourceData != null)
+            {
+                VarjoDLL.FreeFrameData((IntPtr)this.ImageSourceData);
+            }
+
+            base.Dispose(disposing);
+        }
+    }
+
     internal class CameraEyeVarjo : CameraEye
     {
         public BlockingCollection<ImageEye> cameraBuffer = new BlockingCollection<ImageEye>(100);

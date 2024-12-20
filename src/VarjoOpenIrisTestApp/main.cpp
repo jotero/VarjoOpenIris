@@ -19,6 +19,4 @@
 int main(int argc, char** argv)
 {
     int result = VarjoStartCameras(nullptr);
-    std::cout << "The result of MyFunction(2, 3) is: " << result << std::endl;
-
 }
