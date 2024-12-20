@@ -86,6 +86,35 @@ void StreamingApplication::handleNewFrames()
             m_frameNumber = optFrameNumber.value();
             update();
         }
+
+
+
+
+        // OPEN IRIS STUFF
+
+        std::vector<uint8_t> frame = m_frame[channelIndex].data;
+        FrameInfo frameInfo{};
+        frameInfo.frameIndex = m_frame[channelIndex].metadata.streamFrame.frameNumber;  // Example frame index
+        frameInfo.timestamp = m_frame[channelIndex].metadata.streamFrame.metadata.eyeCamera.timestamp;  // Example timestamp
+        frameInfo.channelIndex = channelIndex;
+
+
+        uint8_t* frameData = static_cast<uint8_t*>(malloc(frame.size()));
+
+        int size = static_cast<int>(frame.size());
+        // Allocate memory and copy the frame data
+
+        if (frameData) {
+            memcpy(frameData, frame.data(), frame.size());
+        }
+
+        if (openIris_callback)
+        {
+            openIris_callback(frameData, size, frameInfo);
+        }
+
+
+        // END OPEN IRIS STUFF
     }
 }
 

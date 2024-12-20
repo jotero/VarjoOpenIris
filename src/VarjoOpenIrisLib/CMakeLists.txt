@@ -19,8 +19,6 @@ set(_sources_app
     ${CMAKE_CURRENT_SOURCE_DIR}/Globals.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Session.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Session.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/UI.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/UI.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Undistorter.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Undistorter.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/EyeCameraStream.cpp
@@ -30,8 +28,6 @@ set(_sources_app
     ${CMAKE_CURRENT_SOURCE_DIR}/IApplication.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/StreamingApplication.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/StreamingApplication.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/UIApplication.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/UIApplication.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/OpenIrisInterface.h
     ${CMAKE_CURRENT_SOURCE_DIR}/OpenIrisInterface.cpp
 )
