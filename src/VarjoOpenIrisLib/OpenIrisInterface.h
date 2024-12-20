@@ -24,7 +24,7 @@ extern "C" {
 	VARJOOPENIRIS_API int GetLastFrame(uint8_t** frameData, int* size, FrameInfo* frameInfo);
 	VARJOOPENIRIS_API int FreeFrameData(uint8_t* frameData);
 	VARJOOPENIRIS_API int VarjoStartCameras(CallbackType callback);
-	VARJOOPENIRIS_API int MyFunction2();
+	VARJOOPENIRIS_API int VarjoStop();
 
 #ifdef __cplusplus
 }

@@ -108,7 +108,6 @@ int VarjoStartCameras(CallbackType callback) {
         ("help", "Display help info");
 
     IApplication::Options appOptions;
-    bool useStreamingApp = false;
     try {
         // Parse command line arguments
         auto arguments = options.parse(argc, argv);
@@ -116,8 +115,6 @@ int VarjoStartCameras(CallbackType callback) {
             std::cout << options.help();
             return EXIT_SUCCESS;
         }
-
-        useStreamingApp = arguments["streaming"].as<bool>();
         appOptions.channels = parseChannels(arguments["channels"].as<std::string>());
     }
     catch (const std::exception& e) {
@@ -136,12 +133,7 @@ int VarjoStartCameras(CallbackType callback) {
         }
 
         // Initialize application
-        if (useStreamingApp) {
-            g_application = std::make_unique<StreamingApplication>(std::move(session), appOptions);
-        }
-        else {
-            g_application = std::make_unique<UIApplication>(std::move(session), appOptions);
-        }
+        g_application = std::make_unique<StreamingApplication>(std::move(session), appOptions);
 
         LOG_INFO(
             "%s\n"
@@ -166,6 +158,10 @@ int VarjoStartCameras(CallbackType callback) {
     return 22; // Example: a simple addition
 }
 
+int VarjoStop() {
+    g_application->terminate();
+    return 0;
+}
 
 std::string toLower(std::string s)
 {

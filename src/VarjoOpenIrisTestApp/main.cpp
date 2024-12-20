@@ -18,8 +18,6 @@
 // Application entry point
 int main(int argc, char** argv)
 {
-    int test = MyFunction2(); 
-
     int result = VarjoStartCameras(nullptr);
     std::cout << "The result of MyFunction(2, 3) is: " << result << std::endl;
 

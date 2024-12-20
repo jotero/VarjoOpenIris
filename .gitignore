@@ -9,3 +9,12 @@
 /c\#/.vs
 /src/.vs
 /src/build-vs-debug
+/c\#/VarjoOpenIrisPluginFramework/obj
+/c\#/VarjoOpenIrisTestAppFramework/bin
+c\#/VarjoOpenIrisTestAppFramework/obj/Debug/VarjoOpenIrisTestAppFramework.csproj.AssemblyReference.cache
+c\#/VarjoOpenIrisTestAppFramework/bin/Debug/VarjoOpenIrisPluginFramework.dll
+c\#/VarjoOpenIrisTestAppFramework/bin/Debug/VarjoOpenIrisPluginFramework.pdb
+c\#/VarjoOpenIrisPluginFramework/obj/Debug/VarjoOpenIrisPluginFramework.pdb
+c\#/VarjoOpenIrisPluginFramework/obj/Debug/VarjoOpenIrisPluginFramework.dll
+c\#/VarjoOpenIrisPluginFramework/bin/Debug/VarjoOpenIrisPluginFramework.pdb
+c\#/VarjoOpenIrisPluginFramework/bin/Debug/VarjoOpenIrisPluginFramework.dll

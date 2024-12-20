@@ -19,6 +19,7 @@ namespace VarjoOpenIrisPlugin
         private EyeCollection<CameraEye>? cameras;
         private ImageEyeTimestamp firstTimeStamp = ImageEyeTimestamp.Empty;
         private long numberFramesGrabbed;
+        private Task varjoTask;
 
         public EyeCollection<CameraEye?>? StartVarjo()
         {
@@ -33,7 +34,7 @@ namespace VarjoOpenIrisPlugin
             // Register the callback with the C++ DLL
             Console.WriteLine("Callback registered.");
 
-            Task.Run(()=>VarjoDLL.VarjoStartCameras(callback));
+            varjoTask = Task.Run(()=>VarjoDLL.VarjoStartCameras(callback));
              
 
             return cameras;
@@ -124,6 +125,14 @@ namespace VarjoOpenIrisPlugin
 
             Console.WriteLine("Callback received value: " + 0);
             return true;
+        }
+
+        public override void Dispose()
+        {
+            VarjoDLL.VarjoStop();
+            //varjoTask.Wait();
+
+            return;
         }
     }
 }

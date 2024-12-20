@@ -28,6 +28,10 @@ namespace VarjoOpenIrisPlugin
             CharSet = CharSet.Ansi, EntryPoint = "VarjoStartCameras")]
         public static extern int VarjoStartCameras(CallbackDelegate callback);
 
+        [DllImport("VarjoOpenIrisLib.dll", CallingConvention = CallingConvention.Cdecl,
+            CharSet = CharSet.Ansi, EntryPoint = "VarjoStop")]
+        public static extern int VarjoStop();
+
 
         // Import the C++ FreeFrameData function
         [DllImport("VarjoOpenIrisLib.dll", CallingConvention = CallingConvention.Cdecl)]
