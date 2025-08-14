@@ -47,7 +47,11 @@ namespace VarjoOpenIrisTestAppFramework
 
         private void EyeTracker_NewDataAndImagesAvailable(object sender, EyeTrackerImagesAndData e)
         {
-            throw new NotImplementedException();
+            label1.BeginInvoke(new Action(() =>
+            {
+                label1.Text = "Frame number = " + e.FrameNumber;
+            }));
+            //throw new NotImplementedException();
         }
 
 
@@ -68,8 +72,6 @@ namespace VarjoOpenIrisTestAppFramework
                 () => 
                 VarjoDLL.VarjoStartCameras(callback)
                 );
-
-
         }
         public bool VarjoCallbackFunction(IntPtr frameDataPtr, int size, FrameInfo frameInfo)
         {
@@ -113,7 +115,7 @@ namespace VarjoOpenIrisTestAppFramework
                 int rows = 480;
                 int stride = 640;
                 var WhichEye = (frameInfo.ChannelIndex == 1) ? Eye.Left : Eye.Right;
-                var newImage = new ImageEye(cols, rows, stride, frameDataPtr, timestamp)
+                var newImage = new ImageEyeVarjo(cols, rows, stride, frameDataPtr, timestamp)
                 {
                     WhichEye = WhichEye,
                     ImageSourceData = frameDataPtr

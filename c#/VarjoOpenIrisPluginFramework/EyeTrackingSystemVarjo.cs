@@ -106,7 +106,7 @@ namespace VarjoOpenIrisPlugin
                 int rows = 480;
                 int stride = 640;
                 var WhichEye = (frameInfo.ChannelIndex==1) ? Eye.Left : Eye.Right;
-                var newImage = new ImageEye(cols, rows, stride, frameDataPtr, timestamp)
+                var newImage = new ImageEyeVarjo(cols, rows, stride, frameDataPtr, timestamp)
                 {
                     WhichEye = WhichEye,
                     ImageSourceData = frameDataPtr

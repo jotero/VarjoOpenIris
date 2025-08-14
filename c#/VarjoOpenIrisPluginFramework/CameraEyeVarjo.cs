@@ -32,7 +32,7 @@ namespace VarjoOpenIrisPlugin
 
     public class CameraEyeVarjo : CameraEye
     {
-        public BlockingCollection<ImageEye> cameraBuffer = new BlockingCollection<ImageEye>(100);
+        public BlockingCollection<ImageEyeVarjo> cameraBuffer = new BlockingCollection<ImageEyeVarjo>(100);
         private CancellationTokenSource cancellation = new CancellationTokenSource();
 
         public CameraEyeVarjo()

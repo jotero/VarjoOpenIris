@@ -15,6 +15,7 @@ C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisTestAppFramewo
 C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisTestAppFramework\bin\x64\Debug\Emgu.CV.UI.xml
 C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisTestAppFramework\bin\x64\Debug\Emgu.CV.World.xml
 C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisTestAppFramework\bin\x64\Debug\OpenIrisLib.pdb
+C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisTestAppFramework\bin\x64\Debug\OpenIrisLib.dll.config
 C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisTestAppFramework\bin\x64\Debug\ZedGraph.xml
 C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisTestAppFramework\bin\x64\Debug\de\ZedGraph.resources.dll
 C:\Users\opt-omlab\Documents\GitHub\VarjoOpenIris\c#\VarjoOpenIrisTestAppFramework\bin\x64\Debug\es\ZedGraph.resources.dll
