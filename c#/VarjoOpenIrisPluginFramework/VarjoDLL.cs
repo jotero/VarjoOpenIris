@@ -21,7 +21,7 @@ namespace VarjoOpenIrisPlugin
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate bool CallbackDelegate(IntPtr frameData, int size, FrameInfo frameInfo);
 
-    internal class VarjoDLL
+    public class VarjoDLL
     {
 
         [DllImport("VarjoOpenIrisLib.dll", CallingConvention = CallingConvention.Cdecl,

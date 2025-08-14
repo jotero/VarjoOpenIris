@@ -12,7 +12,7 @@ using System.Threading;
 
 namespace VarjoOpenIrisPlugin
 {
-    internal class ImageEyeVarjo : ImageEye
+    public class ImageEyeVarjo : ImageEye
     {
         public ImageEyeVarjo(int width, int height, int stride, IntPtr data, ImageEyeTimestamp timeStamp)
             : base( width, height, stride, data, timeStamp)
@@ -30,7 +30,7 @@ namespace VarjoOpenIrisPlugin
         }
     }
 
-    internal class CameraEyeVarjo : CameraEye
+    public class CameraEyeVarjo : CameraEye
     {
         public BlockingCollection<ImageEye> cameraBuffer = new BlockingCollection<ImageEye>(100);
         private CancellationTokenSource cancellation = new CancellationTokenSource();
